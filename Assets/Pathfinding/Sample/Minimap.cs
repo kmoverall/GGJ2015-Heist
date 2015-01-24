@@ -14,7 +14,8 @@ public class Minimap : MonoBehaviour {
 	private dynamicWall Door_s;
 	Vector3 Mouse_click;
 	string TagOnClick;
-	//List<int> commands;
+	public List<string> commands;
+	string ListToString;
 	void Start () {
 		Door_s = Door.GetComponent<dynamicWall> ();
 	}
@@ -31,7 +32,7 @@ public class Minimap : MonoBehaviour {
 
 			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
 			{
-				if (hit.transform.gameObject.tag != "Obstacle")
+				if (hit.transform.gameObject.tag != "Obstacle" )
 				{
 					if (action_list == false) {
 					target.transform.position = hit.point;
@@ -69,6 +70,7 @@ public class Minimap : MonoBehaviour {
 				{
 					Door_s.door = !Door_s.door;
 					action_list = false;
+					commands.Add("Open Door");
 				}
 
 			}
@@ -76,10 +78,27 @@ public class Minimap : MonoBehaviour {
 			GUI.Box (new Rect (Mouse_click.x, Screen.height - Mouse_click.y , Screen.width /4, Screen.height /4), "Move ");
 			GUI.Button(new Rect(Mouse_click.x,(Screen.height - Mouse_click.y) + 20,Screen.width /8  ,Screen.height /8),"Action");
 			}
+			if(TagOnClick == "NPC"){
+				GUI.Box (new Rect (Mouse_click.x, Screen.height - Mouse_click.y , Screen.width /4, Screen.height /4), "Command");
+				if(GUI.Button(new Rect(Mouse_click.x,(Screen.height - Mouse_click.y) + 20,Screen.width /8  ,Screen.height /8),"pick pocket"))
+				{					
+					action_list = false;
+					commands.Add("Pick Pocket");
+				}
 			}
+			
+			}
+		GUI.Box (new Rect (10, 10 , Screen.width /4, Screen.height /4), "Command List");
+		for (int i = 0; i < commands.Count; i++)
+		{
+			ListToString = ListToString + (commands[i] + "\n");
+		}
+		GUI.Label(new Rect (20, 20 , Screen.width /4, Screen.height /4), ListToString);
 		GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
 		style.alignment = TextAnchor.MiddleCenter;
 		style.fontStyle = FontStyle.Bold;
 		GUI.Label(new Rect(bounds.x, bounds.y+bounds.height, bounds.width, 30), "Move your peeps!", style);
+
+		ListToString = "";
 	}
 }
