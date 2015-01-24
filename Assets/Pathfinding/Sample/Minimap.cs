@@ -14,7 +14,7 @@ public class Minimap : MonoBehaviour {
 	private dynamicWall Door_s;
 	Vector3 Mouse_click;
 	string TagOnClick;
-	List commands;
+	//List<int> commands;
 	void Start () {
 		Door_s = Door.GetComponent<dynamicWall> ();
 	}

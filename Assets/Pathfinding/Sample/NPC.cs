@@ -11,7 +11,7 @@ public struct PathNode {
 public class NPC : MonoBehaviour {
 	public List<PathNode> path; //Done to make pathDict editable in the inspector. Converted to a dictionary at runtime
 	private Dictionary<int, Transform> pathDict = new Dictionary<int, Transform>();
-	private GameState gameState;
+	private GameStateController gameState;
 	public int moneyHeld;
 	public bool combinationHeld;
 
