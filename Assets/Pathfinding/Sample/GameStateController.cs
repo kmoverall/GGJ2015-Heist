@@ -41,7 +41,7 @@ public class GameStateController : MonoBehaviour
 	
 	void OnGUI() 
 	{
-		if (GUI.Button (new Rect (10, 10, 50, 50), "Execute"))
+		if (GUI.Button (new Rect (10, 10, 70, 70), "Execute"))
 			currentGameState = GameState.Execution;
 	}
 }
