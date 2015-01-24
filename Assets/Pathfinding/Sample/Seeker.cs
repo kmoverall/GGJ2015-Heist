@@ -17,7 +17,7 @@ public class Seeker : MonoBehaviour {
 	public float reachedKnot = 1f;
 	private Pathfinder pathfinder;
 	private CharacterController characterController;
-	private List<PathKnot> knots = new List<PathKnot>();
+	public List<PathKnot> knots = new List<PathKnot>();
 	private int knotIndex = 1;
 	private int state = -1;
 
