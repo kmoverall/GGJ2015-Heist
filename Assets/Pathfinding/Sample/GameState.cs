@@ -5,9 +5,9 @@ using System.Collections;
 
 public class GameStateController : MonoBehaviour 
 {
-
+	
 	public enum GameState { Setup, Excecution };
-
+	
 	// Constant for the number of seconds that elapse before a "Click" happens.
 	public const float secondsPerClick = 5.0f;
 	
@@ -16,19 +16,19 @@ public class GameStateController : MonoBehaviour
 	// Current "Click", Denotes number of discrete time periods before or after start of game.
 	private int currentClick = 0;
 	public int CurrentClick { get { return currentClick; } }
-
-
+	
+	
 	private GameState currentGameState = GameState.Setup;
 	public GameState CurrentGameState { get { return currentGameState; } }
-
+	
 	// Use this for initialization
 	void Start () 
 	{
-
+		
 		lastClickTime = Time.time;
-
+		
 	}
-
+	
 	
 	// Update is called once per frame
 	void Update () 
