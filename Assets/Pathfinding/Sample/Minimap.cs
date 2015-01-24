@@ -36,7 +36,7 @@ public class Minimap : MonoBehaviour {
 				{
 					if (action_list == false) {
 					target.transform.position = hit.point;
-					Debug.Log (hit.point + " hitpoint");
+					//Debug.Log (hit.point + " hitpoint");
 					PlayerPrefs.SetFloat("hitpoint.x",hit.point.x);
 					PlayerPrefs.SetFloat("hitpoint.z",hit.point.z);
 					}
