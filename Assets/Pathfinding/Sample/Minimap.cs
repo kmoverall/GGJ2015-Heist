@@ -19,7 +19,7 @@ public class Minimap : MonoBehaviour {
 		camera.rect = new Rect(x, y, w, h);
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
-			Debug.Log (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity));	// inside outside map.
+			//Debug.Log (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity));	// inside outside map.
 
 			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
 			{
@@ -37,6 +37,6 @@ public class Minimap : MonoBehaviour {
 		GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
 		style.alignment = TextAnchor.MiddleCenter;
 		style.fontStyle = FontStyle.Bold;
-		GUI.Label(new Rect(bounds.x, bounds.y+bounds.height, bounds.width, 30), "Click on the minimap to reposition the target", style);
+		GUI.Label(new Rect(bounds.x, bounds.y+bounds.height, bounds.width, 30), "Move your peeps!", style);
 	}
 }

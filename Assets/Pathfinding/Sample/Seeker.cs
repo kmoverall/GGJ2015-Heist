@@ -32,7 +32,6 @@ public class Seeker : MonoBehaviour {
 		if (knots.Count == 0 && state != -2 || target.position != pathfinder.target) {
 			if (knots.Count == 0) pathfinder.findPath(transform.position, target.position, foundPath);
 			else pathfinder.findPath(knots[knotIndex].position, target.position, foundPath);
-			//Debug.Log ("done");
 		}
 		if (knots.Count != 0 && knotIndex < knots.Count) {
 			Vector3 lookPos = knots[knotIndex].position - transform.position;
@@ -62,8 +61,9 @@ public class Seeker : MonoBehaviour {
 					} else if (!obstacle.isObstacle(pathfinder)) if (knotIndex < knots.Count-1) knotIndex++;
 				} else if (!isHitting) {
 
-					if (knotIndex < knots.Count-1) knotIndex++;
-					else {
+					if (knotIndex < knots.Count-1) {
+						knotIndex++;
+					}else {
 						knots = new List<PathKnot>();//DONE
 					
 					}
