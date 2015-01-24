@@ -10,7 +10,6 @@ public class GameStateController : MonoBehaviour
 	
 	// Constant for the number of seconds that elapse before a "Click" happens.
 	public const float secondsPerClick = 5.0f;
-	
 	private float lastClickTime;
 	
 	// Current "Click", Denotes number of discrete time periods before or after start of game.
@@ -38,5 +37,10 @@ public class GameStateController : MonoBehaviour
 			currentClick += 1;            
 			lastClickTime = Time.time;	  
 		}
+	}
+
+	void OnGUI() 
+	{
+
 	}
 }
