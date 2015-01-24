@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Retrieve game state
-		gameState = (GameState)(GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameStateController>());
+		gameState = (GameStateController)(GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameStateController>());
 
 		//Generate path dictionary
 		foreach (PathNode p in path) {
