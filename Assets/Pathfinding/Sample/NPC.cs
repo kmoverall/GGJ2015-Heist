@@ -50,7 +50,7 @@ public class NPC : MonoBehaviour {
     		float pathDistance = 0;
     		if (gameState.CurrentGameState == GameStateController.GameState.Execution) {
     			for(int i = 0; i < ownSeeker.knots.Count - 1; i++) {
-    				pathDistance += Vector3.Distance(ownSeeker.knots[i].position, ownSeeker.knots[i+1].position)
+                    pathDistance += Vector3.Distance(ownSeeker.knots[i].position, ownSeeker.knots[i+1].position);
     			}
     		}
     		ownSeeker.walkingSpeed = pathDistance / GameStateController.secondsPerClick;
