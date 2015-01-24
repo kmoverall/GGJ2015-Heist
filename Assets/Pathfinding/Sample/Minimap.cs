@@ -19,7 +19,17 @@ public class Minimap : MonoBehaviour {
 		camera.rect = new Rect(x, y, w, h);
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
-			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) if (hit.transform.gameObject.tag != "Obstacle") target.transform.position = hit.point;
+			Debug.Log (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity));	// inside outside map.
+
+			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
+			{
+				if (hit.transform.gameObject.tag != "Obstacle")
+				{
+					target.transform.position = hit.point;
+					Debug.Log (hit.point + " hitpoint");
+				}
+			}
+
 		}
 	}
 
