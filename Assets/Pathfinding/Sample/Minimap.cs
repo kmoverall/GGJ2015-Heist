@@ -5,8 +5,11 @@ using System.Collections;
 [RequireComponent(typeof(Camera))]
 public class Minimap : MonoBehaviour {
 	public GameObject target;
+	public bool action_list = false;
 	public Rect bounds = new Rect(0f, 0f, 300f, 300f);
-
+	public GUIStyle button;	
+	public GUIStyle box;
+	Vector3 Mouse_click;
 	void Start () {
 	
 	}
@@ -33,23 +36,31 @@ public class Minimap : MonoBehaviour {
 			}
 
 		}
-
-	}
-
-	void OnGUI() {
-		if (Input.GetMouseButtonDown(1)) {	
+		if (Input.GetMouseButtonUp(1)) {	
 			RaycastHit hit;
 			
 			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
 			{
 				if (hit.transform.gameObject.tag == "Obstacle")
 				{
-					Debug.Log("you hit me");
-					GUI.Label(new Rect(0,0,0, 30), "Move your peeps!");
+					
+					action_list = !action_list;
+					Mouse_click = Input.mousePosition;
+					Debug.Log("you hit me " + action_list);
+					
 				}
 			}
 			
 		}
+
+	}
+
+	void OnGUI() {
+
+
+		if (action_list == true) {
+			GUI.Box (new Rect (Mouse_click.x, Screen.height - Mouse_click.y , Screen.width /4, Screen.height /4), "Move ");
+				}
 		GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
 		style.alignment = TextAnchor.MiddleCenter;
 		style.fontStyle = FontStyle.Bold;
