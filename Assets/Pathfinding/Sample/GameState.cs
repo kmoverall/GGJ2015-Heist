@@ -6,7 +6,7 @@ using System.Collections;
 public class GameStateController : MonoBehaviour 
 {
 	
-	public enum GameState { Setup, Excecution };
+	public enum GameState { Setup, Execution };
 	
 	// Constant for the number of seconds that elapse before a "Click" happens.
 	public const float secondsPerClick = 5.0f;
