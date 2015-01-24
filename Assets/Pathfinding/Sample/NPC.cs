@@ -14,12 +14,12 @@ public class NPC : MonoBehaviour {
 	private GameStateController gameState;
 	public int moneyHeld;
 	public bool combinationHeld;
-
+	
 	// Use this for initialization
 	void Start () {
 		//Retrieve game state
 		gameState = (GameStateController)(GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameStateController>());
-
+		
 		//Generate path dictionary
 		foreach (PathNode p in path) {
 			pathDict.Add (p.click, p.position);

@@ -23,11 +23,11 @@ public class GameStateController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Debug.Log (currentClick);
+		
 		lastClickTime = Time.time;
 		
 	}
-
+	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -38,9 +38,10 @@ public class GameStateController : MonoBehaviour
 			lastClickTime = Time.time;	  
 		}
 	}
-
+	
 	void OnGUI() 
 	{
-
+		if (GUI.Button (new Rect (10, 10, 50, 50), "Execute"))
+			currentGameState = GameState.Execution;
 	}
 }
