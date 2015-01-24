@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
@@ -13,6 +14,7 @@ public class Minimap : MonoBehaviour {
 	private dynamicWall Door_s;
 	Vector3 Mouse_click;
 	string TagOnClick;
+	List commands;
 	void Start () {
 		Door_s = Door.GetComponent<dynamicWall> ();
 	}
