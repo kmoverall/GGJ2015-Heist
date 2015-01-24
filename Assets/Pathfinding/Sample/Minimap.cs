@@ -27,13 +27,29 @@ public class Minimap : MonoBehaviour {
 				{
 					target.transform.position = hit.point;
 					Debug.Log (hit.point + " hitpoint");
+					PlayerPrefs.SetFloat("hitpoint.x",hit.point.x);
+					PlayerPrefs.SetFloat("hitpoint.z",hit.point.z);
 				}
 			}
 
 		}
+
 	}
 
 	void OnGUI() {
+		if (Input.GetMouseButtonDown(1)) {
+			RaycastHit hit;
+			
+			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
+			{
+				if (hit.transform.gameObject.tag == "Obstacle")
+				{
+					Debug.Log("you hit me");
+					GUI.Label(new Rect(0,0,0, 30), "Move your peeps!");
+				}
+			}
+			
+		}
 		GUIStyle style = new GUIStyle(GUI.skin.GetStyle("label"));
 		style.alignment = TextAnchor.MiddleCenter;
 		style.fontStyle = FontStyle.Bold;
