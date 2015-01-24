@@ -15,10 +15,16 @@ public class GameStateController : MonoBehaviour
 	// Current "Click", Denotes number of discrete time periods before or after start of game.
 	private int currentClick = 0;
 	public int CurrentClick { get { return currentClick; } }
-	
-	
+
 	private GameState currentGameState = GameState.Setup;
 	public GameState CurrentGameState { get { return currentGameState; } }
+
+	private float totalMoney = 0.0f;
+	public float TotalMoney { get { return totalMoney; } set { totalMoney = value; } }
+
+	private int numOfTeamMembers = 0;
+	public int NumOfTeamMembers {get { return numOfTeamMembers; } set { numOfTeamMembers = value; } }
+
 	
 	// Use this for initialization
 	void Start () 
@@ -41,7 +47,20 @@ public class GameStateController : MonoBehaviour
 	
 	void OnGUI() 
 	{
-		if (GUI.Button (new Rect (10, 10, 70, 70), "Execute"))
-			currentGameState = GameState.Execution;
+		GUILayout.Label ("Curent Click: " + currentClick + "  Time:" + lastClickTime.ToString("0"));
+
+		if (currentClick == 0) 
+		{
+			if (GUI.Button (new Rect (10, 10, 70, 70), "Execute"))
+				currentGameState = GameState.Execution;
+
+			//if (GUI.Button (new Rect (10, 100, 70, 70), "Move"))
+			//	Debug.Log("clicked move buton");
+			
+			//if (GUI.Button (new Rect (100, 100, 70, 70), "Acion"))
+				//Debug.Log("Clicked Action Button");
+
+		}
+
 	}
 }
