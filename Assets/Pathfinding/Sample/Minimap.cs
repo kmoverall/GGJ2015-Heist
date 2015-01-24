@@ -32,7 +32,7 @@ public class Minimap : MonoBehaviour {
 
 			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
 			{
-				if (hit.transform.gameObject.tag != "Obstacle")
+				if (hit.transform.gameObject.tag != "Obstacle" )
 				{
 					if (action_list == false) {
 					target.transform.position = hit.point;
