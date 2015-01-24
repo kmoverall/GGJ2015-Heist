@@ -28,7 +28,8 @@ public class NPC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Set position to position denoted by click and path
-		this.gameObject.transform.position = pathDict[gameState.currentClick].position;
+		if (this.gameObject.transform.position != pathDict [gameState.currentClick].gameObject.transform.position) {
+			this.gameObject.transform.position = pathDict [gameState.currentClick].gameObject.transform.position;
+		}
 	}
 }

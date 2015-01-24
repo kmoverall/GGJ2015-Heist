@@ -32,9 +32,10 @@ public class GameState : MonoBehaviour {
 	void Update () {
 	
 		// If "secondsPerClick" seconds have passed...
-		if ( (Time.time - currentTime) > secondsPerClick )
+		/*if ( (Time.time - currentTime) > secondsPerClick )
 			
 			currentClick += 1;            // "Click" game forward by 1
 			currentTime = Time.time;	  // Set currentTime to the current system time.
+			*/
 	}
 }
