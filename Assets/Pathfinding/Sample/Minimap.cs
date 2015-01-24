@@ -37,7 +37,7 @@ public class Minimap : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if (Input.GetMouseButtonDown(1)) {
+		if (Input.GetMouseButtonDown(1)) {	
 			RaycastHit hit;
 			
 			if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out hit, float.PositiveInfinity)) 
