@@ -23,7 +23,11 @@ public class GameStateController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+<<<<<<< HEAD
 		Debug.Log (currentClick);
+=======
+		
+>>>>>>> Stash
 		lastClickTime = Time.time;
 		
 	}
